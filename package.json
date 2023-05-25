@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "./",
+  "author": {
+    "email": "wahidsf01@gmail.com",
+    "name": "Warcry98"
+  },
   "main": "./public/electron.js",
   "build": {
     "appId": "com.warcry98.myapp",
@@ -10,7 +14,14 @@
     "files": [
       "build/**/*",
       "node_modules/**/*"
-    ]
+    ],
+    "linux": {
+      "target": [
+        "deb",
+        "snap",
+        "AppImage"
+      ]
+    }
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

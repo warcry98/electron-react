@@ -4,6 +4,14 @@
   "private": true,
   "homepage": "./",
   "main": "./public/electron.js",
+  "build": {
+    "appId": "com.warcry98.myapp",
+    "productName": "Electron React App",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ]
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -17,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron:start": "concurrently -k \"cross-env BROWSER=none npm run start\" \"wait-on http://localhost:3000 && electronmon .\"",
+    "electron:package": "npm run build && electron-builder -c.extraMetadata.main=build/electron.js"
   },
   "eslintConfig": {
     "extends": [
